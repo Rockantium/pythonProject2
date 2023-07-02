@@ -3,28 +3,31 @@
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
-def make_stronger_password(password):
-  """Makes a password stronger by replacing characters and appending "q*s" to the end.
+def strengthen_password(password):
+    strengthened_password = ""
 
-  Args:
-    password: The password to make stronger.
+    for char in password:
+        if char == 'i':
+            strengthened_password += '!'
+        elif char == 'a':
+            strengthened_password += '@'
+        elif char == 'm':
+            strengthened_password += 'M'
+        elif char == 'B':
+            strengthened_password += '8'
+        elif char == 'o':
+            strengthened_password += '.'
+        else:
+            strengthened_password += char
 
-  Returns:
-    The stronger password.
-  """
-
-  password = password.replace("i", "!")
-  password = password.replace("a", "@")
-  password = password.replace("m", "M")
-  password = password.replace("B", "8")
-  password = password.replace("o", ".")
-  return password + "q*s"
+    strengthened_password += 'q*s'
+    return strengthened_password
 
 
-if __name__ == "__main__":
-  password = "mypassword"
-  stronger_password = make_stronger_password(password)
-  print(stronger_password)
+# Test the program
+input_password = input("Enter a simple password: ")
+stronger_password = strengthen_password(input_password)
+print("The stronger password is:", stronger_password)
 
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
